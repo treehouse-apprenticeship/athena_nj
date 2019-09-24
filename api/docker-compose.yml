@@ -1,0 +1,17 @@
+version: "2"
+services:
+  mongo:
+    container_name: fsjstd-team-project-mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+  app:
+    container_name: fsjstd-team-project-app
+    restart: always
+    build: .
+    volumes:
+      - ./src:/usr/src
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
