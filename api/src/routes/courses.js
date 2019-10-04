@@ -72,7 +72,8 @@ promiseRouter.delete('/:id',
   getCourse,
   restrictAccessToCourse,
   async (req, res) => {
-    await db.repository.deleteCourse();
+    const course = getCurrentCourse(req);
+    await db.repository.deleteCourse(course);
     noContentResponse(res);
   });
 
