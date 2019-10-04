@@ -25,7 +25,7 @@ const courseSchema = Schema({
     type: String,
     required: [true, 'Please provide a value for "Description"'],
   },
-  estimatedTme: String,
+  estimatedTime: String,
   materialsNeeded: String,
 });
 
