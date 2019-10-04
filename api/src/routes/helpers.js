@@ -15,7 +15,7 @@ exports.successResponse = (res, data) => {
 };
 
 exports.createdResponse = (res, location) => {
-  res.status(202).location(location).json();
+  res.status(201).location(location).json();
 };
 
 exports.noContentResponse = (res) => {
