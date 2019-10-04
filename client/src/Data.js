@@ -107,7 +107,7 @@ export default class Data {
   }
   
   updateCourse(course) {
-    return this.api(`/courses/${course._id}`, 'GET', course, true)
+    return this.api(`/courses/${course._id}`, 'PUT', course, true)
       .then((response) => {
         if (response.status === 204) {
           return [];
