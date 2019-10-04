@@ -21,23 +21,23 @@ export default class UserSignIn extends Component {
       <div className="bounds">
         <div className="grid-33 centered signin">
           <h1>Sign In</h1>
-          <Form 
+          <Form
             cancel={this.cancel}
             errors={errors}
             submit={this.submit}
             submitButtonText="Sign In"
             elements={() => (
               <React.Fragment>
-                <FormField 
-                  fieldName="emailAddress" 
-                  label="Email Addrss" 
-                  value={emailAddress} 
+                <FormField
+                  fieldName="emailAddress"
+                  label="Email Address"
+                  value={emailAddress}
                   handleChange={this.change} />
-                <FormField 
+                <FormField
                   type="password"
-                  fieldName="password" 
-                  label="Password" 
-                  value={password} 
+                  fieldName="password"
+                  label="Password"
+                  value={password}
                   handleChange={this.change} />
               </React.Fragment>
             )} />
@@ -70,7 +70,7 @@ export default class UserSignIn extends Component {
       .then((user) => {
         if (user === null) {
           this.setState(() => {
-            return { errors: [ 'Sign-in was unsuccessful' ] };
+            return { errors: ['Sign-in was unsuccessful'] };
           });
         } else {
           this.props.history.push(from);
