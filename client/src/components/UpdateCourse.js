@@ -12,7 +12,7 @@ export default class UpdateCourse extends Component {
   }
 
   componentDidMount() {
-    const { context, match: { params: { id }} } = this.props;
+    const { context, match: { params: { id } } } = this.props;
 
     context.data.getCourse(id)
       .then((course) => {
@@ -23,7 +23,7 @@ export default class UpdateCourse extends Component {
               description: course.description,
               estimatedTime: course.estimatedTime,
               materialsNeeded: course.materialsNeeded,
-            });  
+            });
           } else {
             this.props.history.push('/forbidden');
           }
@@ -55,7 +55,7 @@ export default class UpdateCourse extends Component {
     return (
       <div className="bounds course--detail">
         <h1>Update Course</h1>
-        <Form 
+        <Form
           cancel={this.cancel}
           errors={errors}
           submit={this.submit}
@@ -65,20 +65,20 @@ export default class UpdateCourse extends Component {
               <div className="grid-66">
                 <div className="course--header">
                   <h4 className="course--label">Course</h4>
-                  <FormField 
-                    fieldName="title" 
-                    label="Course title..." 
-                    value={title} 
+                  <FormField
+                    fieldName="title"
+                    label="Course title..."
+                    value={title}
                     handleChange={this.change}
                     className="input-title course--title--input" />
                   <p>By {firstName} {lastName}</p>
                 </div>
                 <div className="course--description">
-                  <FormField 
+                  <FormField
                     type="textarea"
-                    fieldName="description" 
-                    label="Course description..." 
-                    value={description} 
+                    fieldName="description"
+                    label="Course description..."
+                    value={description}
                     handleChange={this.change} />
                 </div>
               </div>
@@ -87,20 +87,20 @@ export default class UpdateCourse extends Component {
                   <ul className="course--stats--list">
                     <li className="course--stats--list--item">
                       <h4>Estimated Time</h4>
-                      <FormField 
-                        fieldName="estimatedTime" 
-                        label="Hours" 
-                        value={estimatedTime} 
+                      <FormField
+                        fieldName="estimatedTime"
+                        label="Hours"
+                        value={estimatedTime}
                         handleChange={this.change}
                         className="course--time--input" />
                     </li>
                     <li className="course--stats--list--item">
                       <h4>Materials Needed</h4>
-                      <FormField 
+                      <FormField
                         type="textarea"
-                        fieldName="materialsNeeded" 
-                        label="List materials..." 
-                        value={materialsNeeded} 
+                        fieldName="materialsNeeded"
+                        label="List materials..."
+                        value={materialsNeeded}
                         handleChange={this.change} />
                     </li>
                   </ul>
@@ -125,7 +125,7 @@ export default class UpdateCourse extends Component {
 
   submit = () => {
     const course = this.state;
-    const { context: { data }, match: { params: { id }} } = this.props;
+    const { context: { data }, match: { params: { id } } } = this.props;
 
     course._id = id;
 
@@ -145,7 +145,7 @@ export default class UpdateCourse extends Component {
   }
 
   cancel = () => {
-    const { match: { params: { id }} } = this.props;
+    const { match: { params: { id } } } = this.props;
 
     this.props.history.push(`/courses/${id}`);
   }
