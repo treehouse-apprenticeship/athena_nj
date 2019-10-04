@@ -40,9 +40,8 @@ promiseRouter.post('/', async (req, res) => {
 
   // encrypt the new user's password (if available)
   if (user.password) {
-    user.password = bcryptjs.hash(user.password, 10);
+    user.password = await bcryptjs.hash(user.password, 10);
   }
-
   await db.repository.createUser(user);
   createdResponse(res, '/');
 });
